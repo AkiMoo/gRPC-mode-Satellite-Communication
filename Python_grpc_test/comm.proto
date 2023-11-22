@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service Comm{
+    rpc Transfer_CtoS(stream Request) returns (Reply) {} //用户向服务器请求
+
+    rpc Transfer_StoC(Request) returns (stream Reply) {} //服务器发流
+
+    rpc Transfer_Both(stream Request) returns (stream Reply) {} //双向
+}
+
+message Request{
+    string message = 1;
+}
+message Reply {
+    string message = 1;
+}
