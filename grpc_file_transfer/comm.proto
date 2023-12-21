@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service StreamFile{
+    rpc ClientStream (stream request) returns (response){}
+}
+
+message request{
+    bytes data = 1;
+}
+
+message response{
+    string message = 1;
+}
